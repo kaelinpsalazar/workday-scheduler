@@ -20,26 +20,39 @@ var workDay = [
 for (let i = 0; i < workDay.length; i++) {
 
     var container = $('.container');
+
+    var icon = $('<i>')
+    icon.addClass('fa-solid fa-floppy-disk');
     
     var liEl = $('<ul>');
     container.append(liEl);
     liEl.addClass('row time-block');
 
     var timeSection = $('<id>');
-    timeSection.addClass('col-md-2 hour');
+    timeSection.addClass('col-md-2 hour').text(workDay[i]);
     liEl.append(timeSection);
 
     var textContainer = $('<textarea>');
     textContainer.addClass('col-md-8 description').attr("placeholder" ,"Enter Text Here");
     liEl.append(textContainer);
 
-    var saveBtn = $('<button>');
-    saveBtn.addClass('col-md-2 saveBtn');
-    liEl.append(saveBtn);
-    // saveBtn.appendChild('<i class="fa-solid fa-floppy-disk"></i>)
+    var button = $('<button>');
+    button.addClass('col-md-2 saveBtn').attr("id","i:hover");
+    button.append(icon);
+    liEl.append(button);
 
 
-    // incon = <i class="fa-solid fa-floppy-disk"></i>
+
+
+    if (timeSection < 12) {
+        (timeSection = (workDay[i] + "AM"))
+    }
+
+
+// Hint on how to save strings in local storage
+// var shoppingItem = $('input[name="shopping-input"]').val();
+
+
 
 
 
